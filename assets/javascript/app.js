@@ -23,11 +23,10 @@ $("#submit-button").on("click", function (event) {
     loadButtons();
 });
 
-$("button").on("click", function() {
 
 function showGifs() {
 
-    const food = $(this).attr("data-name")
+    const food = $(this).attr("data-name");
     const queryURL = `https://api.giphy.com/v1/gifs/search?q=${food}&api_key=mG7YbA6SQ8q8PRgpYLumQ16Fg2xaNZpu&limit=10`
 
     $.ajax({
@@ -35,13 +34,15 @@ function showGifs() {
         method: "GET"
      }).then(function(response) {
 
+        $("#gifs").empty();
         
         console.log(queryURL);
         console.log(response);
 
         const results = response.data;
         for (let i = 0; i< results.length; i++) {
-            let foodDiv = $("<div>");
+            const foodDiv = $("<div>");
+            foodDiv.addClass("foodDiv");
             const p = $("<p>").text("Rating: " + results[i].rating);
             const foodImage = $("<img>");
             foodImage.attr("src", results[i].images.fixed_height.url);
@@ -54,10 +55,12 @@ function showGifs() {
         }
 
 
-     });
+
+});
 
 }
 
-});
+$(document).on("click", ".food", showGifs);
+
 
 loadButtons();
