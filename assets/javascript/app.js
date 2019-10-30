@@ -50,6 +50,7 @@ function showGifs() {
             foodDiv.addClass("foodDiv");
             const p = $("<p>").text("Rating: " + results[i].rating);
             const foodImage = $("<img>");
+            foodImage.addClass("foodGifs");
             foodImage.attr("src", results[i].images.fixed_height.url);
 
 
@@ -73,16 +74,16 @@ function showGifs() {
 
 }
 
-$("#gifs").on("click", function() {
+$("#gifs").on("click", ".foodGifs", function() {
 
-    const state = $(this).attr("data state");
+    const state = $(this).attr("data-state");
     if (state === "still") {
-        $(this).attr("src", $(this).data("animate"));
+        $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
     
     }
 else {
-    $(this).attr("src", $(this).data("still"));
+    $(this).attr("src", $(this).attr("data-still"));
     $(this).attr("data-state", "still");
 
 }
