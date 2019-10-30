@@ -10,3 +10,40 @@ h1 {
     margin-bottom: 10px;
 
 }
+
+#submit-form {
+
+    margin-top: 10px;
+    padding-right: 500px;
+
+
+}
+
+#buttons-view {
+
+    background-color: azure;
+
+
+}
+
+button
+ {
+  margin: 10px;
+}
+
+p {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    #submit-form {
+      padding-right: 100px;
+    }
+    #submit-button {
+    margin-left: 390px;
+    margin-top: -85px;
+
+    }
+
+  }
