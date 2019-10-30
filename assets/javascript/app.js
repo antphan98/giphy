@@ -1,3 +1,8 @@
+$(document).ready(function() {
+
+
+
+
 const topics = ["sushi", "pizza", "burgers", "sandwich", "pasta"];
 
 function loadButtons() {
@@ -47,9 +52,17 @@ function showGifs() {
             const foodImage = $("<img>");
             foodImage.attr("src", results[i].images.fixed_height.url);
 
+
+           const animate = results[i].images.fixed_height.url;
+           const still = results[i].images.fixed_height_still.url;
+           foodImage.attr("src", still);
+           foodImage.attr("data-still", still);
+           foodImage.attr("data-animate", animate);
+           foodImage.attr("data-state", still);
+           
+
             foodDiv.append(p);
             foodDiv.append(foodImage);
-
             $("#gifs").prepend(foodDiv);
 
         }
@@ -64,3 +77,5 @@ $(document).on("click", ".food", showGifs);
 
 
 loadButtons();
+
+});
