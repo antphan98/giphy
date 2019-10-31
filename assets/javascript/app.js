@@ -1,8 +1,6 @@
 $(document).ready(function() {
 
 
-
-
 const topics = ["sushi", "pizza", "burgers", "sandwich", "pasta"];
 
 function loadButtons() {
@@ -19,7 +17,7 @@ function loadButtons() {
 }
 
 
-$("#submit-button").on("click", function (event) {
+$("#submit-button").on("click", "#food-form", function (event) {
 
     event.preventDefault();
     const topic = $("#submit-input").val().trim();
@@ -68,8 +66,6 @@ function showGifs() {
 
         }
 
-
-
 });
 
 }
@@ -90,7 +86,6 @@ else {
 
 
 });
-
 
 
 $(document).on("click", ".food", showGifs);
